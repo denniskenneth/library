@@ -1,0 +1,99 @@
+/* Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Heebo:wght@100;200;300;400&display=swap");
+
+/* General Styling */
+* {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+}
+
+/* NavBar Fonts */
+nav div a.navbar-brand {
+  font-family: "Anton", sans-serif;
+  font-size: 2rem;
+}
+
+/* Height Set */
+/* main,
+.container {
+  height: 100vh;
+} */
+
+/* Main Container Style */
+main {
+  padding-top: 2rem;
+}
+
+/* Button Style */
+main div button.btn {
+  padding: 0.5rem;
+  width: 10%;
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  /* display: none; */
+}
+
+/* Form Holder Styling */
+.form-holder {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  z-index: 1;
+  padding-top: 200px;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Form Style */
+form {
+  /* position: absolute; */
+  width: 20rem;
+  height: 20rem;
+  text-align: center;
+  border-radius: 5%;
+  padding: 1.2rem;
+  top: 20%;
+  color: black;
+}
+
+/* Input Styling */
+
+h2,
+input {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: black;
+}
+
+/* Form Button Style */
+form .row .col-md-6 button {
+  border: none;
+  color: white;
+  background: black;
+  padding: 0.5rem;
+}
+
+/* Input Styling */
+.form-control::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black !important;
+  opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black !important;
+}
+
+.form-control::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black !important;
+}

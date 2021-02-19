@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deni's Library App</title>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/c558e15c17.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <!-- Tab Icon -->
+    <link rel="icon" href="./res/library.svg" />
+  </head>
+  <body>
+    <header>
+      <!-- <nav class="navbar navbar-light ">
+            <div class="container-fluid">
+              
+            </div>
+          </nav> -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid d-flex flex-row justify-content-center">
+          <a class="navbar-brand" href="#">
+            <img
+              src="./res/library.svg"
+              alt=""
+              width="50"
+              height="50"
+              class="d-inline-block align-top"
+            />
+            Deni's Library
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-success" id="addBtn">
+          Success
+        </button>
+      </div>
+
+      <div class="form-holder">
+        <form action="" class="data-form bg-success">
+          <h2>Add a New Book</h2>
+          <input
+            type="text"
+            name="bk-title"
+            id="bk-title"
+            class="form-control"
+            placeholder="Enter the Title of the Book"
+          />
+          <input
+            type="text"
+            name="bk-author"
+            class="form-control"
+            id="bk-author"
+            placeholder="Enter the Author of the book"
+          />
+          <input
+            type="text"
+            name="bk-genre"
+            class="form-control"
+            id="bk-genre"
+            placeholder="Enter the Genre of the book"
+          />
+          <input
+            type="number"
+            class="form-control"
+            name="pages"
+            id="pages"
+            placeholder="Enter the Number of Book Pages"
+          />
+          <div class="row">
+            <div class="col-md-6">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="read-radio"
+                id="read-radio"
+              />
+              <label class="form-check-label" for="read-radio">Read</label>
+            </div>
+            <div class="col-md-6">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="bk-holder"></div>
+    </main>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"
+      integrity="sha384-DBjhmceckmzwrnMMrjI7BvG2FmRuxQVaTfFYHgfnrdfqMhxKt445b7j3KBQLolRl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
