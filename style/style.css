@@ -97,3 +97,17 @@ form .row .col-md-6 button {
   /* Microsoft Edge */
   color: black !important;
 }
+
+/* BOOK DISPLAY STYLING */
+.bk-holder {
+  margin-top: 1rem;
+}
+
+.card {
+  margin: 1rem;
+}
+
+h3 {
+  margin: 1rem;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
