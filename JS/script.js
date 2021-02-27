@@ -108,7 +108,7 @@ const newBook = (e) => {
   author.classList.add("card-subtitle");
   title.classList.add("card-subtitle");
   cardBody.classList.add("card-body");
-  card.classList.add("card", "col-md-4", "flex-row");
+  card.classList.add("card", "col-md-3", "flex-row");
   bkHolder.classList.add("row");
 
   // cardBody.append(title);
