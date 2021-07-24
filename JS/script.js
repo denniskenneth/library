@@ -1,5 +1,120 @@
-// BTN QUERY
+
+let myLibrary = [];
+
+// FORM
+const submit = document.querySelector("#submit");
+let bkTitle = document.querySelector("#bk-title");
+let bkAuthor = document.querySelector("#bk-author");
+let bkGenre = document.querySelector("#bk-genre");
+let bkPages = document.querySelector("#pages");
+let bkRead = document.getElementsByName('read-radio');
+let length = bkRead.length;
+let mainRead;
 const addBtn = document.querySelector("#addBtn");
+// FORM-HOLDER QUERY
+const formHolder = document.querySelector(".form-holder");
+
+//FORM POPUP FUNTION
+addBtn.addEventListener("click", () => {
+  formHolder.style.display = "flex";
+});
+
+// WINDOW POPUP *CLOSE FUNCTION
+window.addEventListener("click", (e) => {
+  if (e.target == formHolder) {
+    formHolder.style.display = "none";
+  }
+});
+
+for (let i = 0; i < length; i++){
+  if (bkRead[i].checked) {
+    alert(bkRead[i].value);
+    mainRead = bkRead[i].value;
+    break;
+  }
+  
+}
+
+// BOOK CONSTRUCTOR
+function Book(title, author, genre, pages, read) {
+  title,
+  author,
+  genre,
+  pages,
+  read
+}
+
+// ADD BOOK TO LIBRARY ARRAY
+function addBookToLibrary(e) {
+  e.preventDefault();
+  let myBook;
+  if (
+    bkTitle.value !== "" &&
+    bkAuthor.value !== "" &&
+    bkGenre.value !== "" &&
+    bkPages.value !== "" &&
+    bkRead.value !== ""
+  ) {
+    myBook = new book(
+      bkTitle.value,
+      bkAuthor.value,
+      bkGenre.value,
+      bkPages.value,
+      mainRead.value
+    );
+    myLibrary.push(myBook);
+  }
+  document.forms[0].reset();
+  formHolder.style.display = "none";
+
+  //BOOK HOLDER
+  const bkHolder = document.querySelector(".bk-holder");
+
+  // bkHolder.style.display = "block";
+  // CREATING CARD ELEMENTS
+  const card = document.createElement("div");
+  const cardBody = document.createElement("div");
+  const title = document.createElement("h2");
+  const author = document.createElement("h3");
+  const genre = document.createElement("h3");
+  const pages = document.createElement("h3");
+  const read = document.createElement("h3");
+
+  read.classList.add("card-subtitle");
+  genre.classList.add("card-subtitle");
+  pages.classList.add("card-subtitle");
+  author.classList.add("card-subtitle");
+  title.classList.add("card-subtitle");
+  cardBody.classList.add("card-body");
+  card.classList.add("card", "col-md-3", "flex-row");
+  bkHolder.classList.add("row");
+
+  // cardBody.append(title);
+  cardBody.append(title, author, genre, pages, read);
+  card.append(cardBody);
+  bkHolder.append(card);
+  if (myBook.read == 'yes'){
+    return read.innerText = "Read: Yes";
+  } else if (myBook.read == 'no') {
+    return read.innerText = "Read: No";
+  }
+  pages.innerText = `Pages: ${myBook.pages}`;
+  genre.innerText = `Genre: ${myBook.genre}`;
+  title.innerText = `Title: ${myBook.title}`;
+  author.innerText = `Author: ${myBook.author}`;
+}
+
+
+
+
+
+
+
+
+
+
+// BTN QUERY
+/*const addBtn = document.querySelector("#addBtn");
 
 // FORM-HOLDER QUERY
 const formHolder = document.querySelector(".form-holder");
@@ -16,23 +131,7 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// LIBRARTY ARRAY
-let myLibrary = [
-  // {
-  //   title: "Certified LoverBoy",
-  //   author: "Drake",
-  //   genre: "R&B and Hip-Hop",
-  //   pages: 20,
-  //   read: false,
-  // },
-  // {
-  //   title: "2014 Forest Hill Drive",
-  //   author: "J. Cole",
-  //   genre: "Hip-Hop",
-  //   pages: 24,
-  //   read: true,
-  // },
-];
+
 
 // BOOK OBJECT CONSTRUCTOR
 function book(title, author, genre, pages, read) {
@@ -61,6 +160,7 @@ const addBook = (e) => {
       bkRead.value
     );
     myLibrary.push(myBook);
+    console.log(bkRead.value)
   }
   document.forms[0].reset();
   displayBooks();
@@ -160,17 +260,12 @@ function displayBooks() {
   });
 }
 
-// FORM
-const submit = document.querySelector("#submit");
-let bkTitle = document.querySelector("#bk-title");
-let bkAuthor = document.querySelector("#bk-author");
-let bkGenre = document.querySelector("#bk-genre");
-let bkPages = document.querySelector("#pages");
-let bkRead = document.querySelector("#read-radio");
+/
 
 document.addEventListener("DOMContentLoaded", addBook);
 
-console.log(myLibrary);
+console.log(bkRead);
 document.addEventListener("DOMContentLoaded", () => {
   submit.addEventListener("click", newBook);
 });
+*/
