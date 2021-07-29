@@ -45,7 +45,7 @@ function Book(title, author, genre, pages, read) {
 }
 
 // ADD BOOK TO LIBRARY ARRAY
-function addBookToLibrary(e) {
+/*function addBookToLibrary(e) {
   e.preventDefault();
   let myBook;
   if (
