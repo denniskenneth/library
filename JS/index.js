@@ -1,16 +1,24 @@
 /**
  * VARIABLE AND CONST DECLARATIONS
  */ 
+
+const submit = document.querySelector("#submit");
+let bkTitle = document.querySelector("#bk-title");
+let bkAuthor = document.querySelector("#bk-author");
+let bkGenre = document.querySelector("#bk-genre");
+let bkPages = document.querySelector("#pages");
+let bkRead = document.getElementsByName('read-radio');
+
 // LIBRARY ARRAY
 let myLibrary = [
-    {
-        title: 'all alone',
-        author: 'dave'
-    },
-    {
-        title: 'CLB',
-        author: 'Drake'
-    }
+    // {
+    //     title: 'all alone',
+    //     author: 'dave'
+    // },
+    // {
+    //     title: 'CLB',
+    //     author: 'Drake'
+    // }
 ];
 
 //BOOK HOLDER
@@ -39,13 +47,38 @@ function clickAddBook() {
         formHolder.style.display = 'flex';
     });
 
+
     // CALLS THE FUNCTION TO CLOSE THE FORM POPUP
     closeFormPopup();
 };
 
-// FUNCTION THAT LOOPS THROUGH THE LIBRARY AND DISPLAYS TO THE WINDOW
-function displayBooks(){
-    myLibrary.forEach((book) => {
+// FACTORY FUNCTION TO CREATE BOOK
+
+// CONSTRUCTOR
+function Book(title, author) {
+    return {
+        title,
+        author
+    }
+}
+
+const addBook = (e) => {
+    e.preventDefault();
+    let myBook
+    if (bkTitle.value !== '' &&
+        bkAuthor.value !== ''
+    ) {
+        myBook = new Book (bkTitle.value, 
+            bkAuthor.value);
+        myLibrary.push(myBook);
+
+    }
+    document.forms[0].reset();
+    formHolder.style.display = 'none';
+    
+    // FUNCTION THAT LOOPS THROUGH THE LIBRARY AND DISPLAYS TO THE WINDOW
+    function displayBooks(){
+
         // CREATING CARD ELEMENTS
         const card = document.createElement("div");
         const cardBody = document.createElement("div");
@@ -65,13 +98,23 @@ function displayBooks(){
         card.append(cardBody);
         bkHolder.append(card);
 
-        title.innerText = `Title: ${book.title}`;
-        author.innerText = `Author: ${book.author}`;
-    })
+        title.innerText = `Title: ${myBook.title}`;
+        author.innerText = `Author: ${myBook.author}`;
+    }
+    displayBooks();
+    //submit.addEventListener('click', () => {
+     //   console.log(myLibrary)
+   // })
+    // submit.addEventListener('click', displayBooks)
 }
+
+
 
 // THIS FUNCTION RUNS WHEN START OF THE PAGE #IT'S AN IIFYM
 (function startProgram() {
     clickAddBook();
-    displayBooks();
+    document.addEventListener("DOMContentLoaded", () => {
+        submit.addEventListener("click", addBook);
+      });
+    // displayBooks();
 })();
