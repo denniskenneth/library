@@ -8,6 +8,7 @@ let bkAuthor = document.querySelector("#bk-author");
 let bkGenre = document.querySelector("#bk-genre");
 let bkPages = document.querySelector("#pages");
 let bkRead = document.getElementsByName('read-radio');
+// console.log(bkRead.value);
 
 // LIBRARY ARRAY
 let myLibrary = [
@@ -55,10 +56,13 @@ function clickAddBook() {
 // FACTORY FUNCTION TO CREATE BOOK
 
 // CONSTRUCTOR
-function Book(title, author) {
+function Book(title, author, genre, pages, read) {
     return {
         title,
-        author
+        author,
+        genre,
+        pages,
+        read
     }
 }
 
@@ -66,12 +70,19 @@ const addBook = (e) => {
     e.preventDefault();
     let myBook
     if (bkTitle.value !== '' &&
-        bkAuthor.value !== ''
+        bkAuthor.value !== '' &&
+        bkGenre.value !== '' &&
+        bkPages.value !== '' &&
+        bkRead.value !== ''
     ) {
         myBook = new Book (bkTitle.value, 
-            bkAuthor.value);
+            bkAuthor.value,
+            bkGenre.value,
+            bkPages.value,
+            bkRead.value
+            );
         myLibrary.push(myBook);
-
+        displayBooks();
     }
     document.forms[0].reset();
     formHolder.style.display = 'none';
@@ -87,21 +98,41 @@ const addBook = (e) => {
         const genre = document.createElement("h3");
         const pages = document.createElement("h3");
         const read = document.createElement("h3")
-        // 
+        
+        read.classList.add("card-subtitle");
+        genre.classList.add("card-subtitle");
+        pages.classList.add("card-subtitle");
         author.classList.add("card-subtitle");
         title.classList.add("card-subtitle");
         cardBody.classList.add("card-body");
         card.classList.add("card", "col-md-3", "flex-row");
         bkHolder.classList.add("row");
 
-        cardBody.append(title, author);
+        cardBody.append(title, author, genre, pages, read);
         card.append(cardBody);
         bkHolder.append(card);
 
         title.innerText = `Title: ${myBook.title}`;
         author.innerText = `Author: ${myBook.author}`;
+        genre.innerText = `Genre: ${myBook.genre}`;
+        pages.innerText = `Pages: ${myBook.pages}`;
+        bkRead.forEach((radio)=> {
+            if(radio.checked) {
+                if (radio.value == 'true') {
+                    read.innerText = `Read: Yes`
+                } else if (radio.value == 'false') {
+                    read.innerText = `Read: No`
+                } else {
+                    read.innerText =`There was an error`
+                    console.log(`Read vale is ${radio.value}`)
+                }
+                
+            }
+            
+         })
+         
     }
-    displayBooks();
+    
     //submit.addEventListener('click', () => {
      //   console.log(myLibrary)
    // })
