@@ -66,6 +66,13 @@ function Book(title, author, genre, pages, read) {
     }
 }
 
+function deleteCard(el) {
+    if (el.classList.contains('delete-btn')) {
+        el.parentNode.parentNode.remove();
+        // console.log('removed')
+    }
+}
+
 const addBook = (e) => {
     e.preventDefault();
     let myBook
@@ -98,7 +105,9 @@ const addBook = (e) => {
         const genre = document.createElement("h3");
         const pages = document.createElement("h3");
         const read = document.createElement("h3")
+        const delBtn = document.createElement("a");
         
+        delBtn.classList.add("btn", "btn-danger", "delete-btn");
         read.classList.add("card-subtitle");
         genre.classList.add("card-subtitle");
         pages.classList.add("card-subtitle");
@@ -108,7 +117,7 @@ const addBook = (e) => {
         card.classList.add("card", "col-md-3", "flex-row");
         bkHolder.classList.add("row");
 
-        cardBody.append(title, author, genre, pages, read);
+        cardBody.append(title, author, genre, pages, read, delBtn);
         card.append(cardBody);
         bkHolder.append(card);
 
@@ -129,14 +138,13 @@ const addBook = (e) => {
                 
             }
             
-         })
+         });
+         delBtn.innerText = `Delete`;
+         cardBody.addEventListener('click', e => {
+            deleteCard(e.target);
+        })
          
     }
-    
-    //submit.addEventListener('click', () => {
-     //   console.log(myLibrary)
-   // })
-    // submit.addEventListener('click', displayBooks)
 }
 
 
