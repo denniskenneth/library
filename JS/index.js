@@ -56,13 +56,23 @@ function clickAddBook() {
 // FACTORY FUNCTION TO CREATE BOOK
 
 // CONSTRUCTOR
-function Book(title, author, genre, pages, read) {
-    return {
-        title,
-        author,
-        genre,
-        pages,
-        read
+// function Book(title, author, genre, pages, read) {
+//     return {
+//         title,
+//         author,
+//         genre,
+//         pages,
+//         read
+//     }
+// }
+
+class Book {
+    constructor(title, author, genre, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.pages = pages;
+        this.read = read;
     }
 }
 
