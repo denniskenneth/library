@@ -29,22 +29,23 @@ const addBtn = document.querySelector('#addBtn');
 const formHolder = document.querySelector('.form-holder');
 
 // BOOK OBJECT CONSTRUCTOR
-function Book(title, author, genre, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.genre = genre;
-  this.pages = pages;
-  this.read = read;
-}
-
-Book.prototype.readTogggle = function () {
-  if (this.read == true) {
-    this.read = false;
-  } else {
-    this.read = true;
-    ``;
+class Book {
+  constructor(title, author, genre, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.pages = pages;
+    this.read = read;
   }
-};
+  readTogggle() {
+    if (this.read == true) {
+      this.read = false;
+    } else {
+      this.read = true;
+      ``;
+    }
+  }
+}
 
 function radioLoop() {
   for (var i = 0, length = radios.length; i < length; i++) {
