@@ -88,7 +88,11 @@
           <div class="row">
             <div class="col-md-6">
               <span>Read:</span>
-              <label class="form-check-label" for="yes-radio">Yes</label>
+              <label class="switch">
+                <input type="checkbox" id="mySwitch" onchange="toggleSwitch()">
+                <span class="slider"></span>
+              </label>
+              <!-- <label class="form-check-label" for="yes-radio">Yes</label>
               <input
                 type="radio"
                 class="form-check-input"
@@ -104,7 +108,7 @@
                 name="read-radio"
                 id="no-radio"
                 value="false"
-              />
+              /> -->
               
             </div>
             <div class="col-md-6">
